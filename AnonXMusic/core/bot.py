@@ -1,4 +1,4 @@
-from pyrogram import Client, errors
+from pyrogram import Client, errors, types
 from pyrogram.enums import ChatMemberStatus, ParseMode
 
 import config
@@ -17,6 +17,7 @@ class Anony(Client):
             in_memory=True,
             parse_mode=ParseMode.HTML,
             max_concurrent_transmissions=7,
+            link_preview_options=types.LinkPreviewOptions(is_disabled=True),
         )
 
     async def start(self):

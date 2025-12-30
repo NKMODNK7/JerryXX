@@ -4,11 +4,10 @@ import random
 import aiofiles
 import aiohttp
 import random
-import requests
-import os
-from PIL import Image, ImageEnhance, ImageFilter, ImageOps, ImageDraw, ImageFont
-from unidecode import unidecode
-from youtubesearchpython.__future__ import VideosSearch
+
+from PIL import Image, ImageFilter, ImageDraw, ImageFont
+from py_yt import VideosSearch
+
 from AnonXMusic import app
 from config import YOUTUBE_IMG_URL
 
