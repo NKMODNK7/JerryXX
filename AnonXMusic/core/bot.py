@@ -8,7 +8,7 @@ from ..logging import LOGGER
 
 class Anony(Client):
     def __init__(self):
-        LOGGER(__name__).info(f"Starting Bot...")
+        LOGGER(__name__).info("Starting Bot...")
         super().__init__(
             name="AnonXMusic",
             api_id=config.API_ID,
@@ -20,10 +20,10 @@ class Anony(Client):
             link_preview_options=types.LinkPreviewOptions(is_disabled=True),
         )
 
-    async def start(self):
+    async def _start(self):
         await super().start()
         self.id = self.me.id
-        self.name = self.me.first_name + " " + (self.me.last_name or "")
+        self.name = self.me.first_name
         self.username = self.me.username
         self.mention = self.me.mention
 
@@ -51,5 +51,5 @@ class Anony(Client):
             exit()
         LOGGER(__name__).info(f"Music Bot Started as {self.name}")
 
-    async def stop(self):
+    async def _stop(self):
         await super().stop()

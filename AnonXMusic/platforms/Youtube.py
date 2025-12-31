@@ -554,13 +554,13 @@ class YouTubeAPI:
                     return downloaded_file, direct
             except Exception as e:
                 print(f"Video API failed: {e}")
-            
+
             # Fallback to cookies
             cookie_file = cookie_txt_file()
             if not cookie_file:
                 print("No cookies found. Cannot download video.")
                 return None, None
-                
+
             if await is_on_off(1):
                 direct = True
                 downloaded_file = await download_song(link)

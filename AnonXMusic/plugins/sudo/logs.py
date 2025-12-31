@@ -9,7 +9,7 @@ from config import LOGGER_ID
 async def new_message(chat_id: int, message: str, reply_markup=None):
     await app.send_message(chat_id=chat_id, text=message, reply_markup=reply_markup)
 
-@app.on_message(filters.new_chat_members)
+@app.on_message(filters.new_chat_members, group=5)
 async def on_new_chat_members(client: Client, message: Message):
     if app.id in [user.id for user in message.new_chat_members]:
         added_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
@@ -29,7 +29,7 @@ async def on_new_chat_members(client: Client, message: Message):
         await add_served_chat(chat_id)
         await new_message(LOGGER_ID, txt, reply_markup)
 
-@app.on_message(filters.left_chat_member)
+@app.on_message(filters.left_chat_member, group=6)
 async def on_left_chat_member(client: Client, message: Message):
     if app.id == message.left_chat_member.id:
         remove_by = message.from_user.mention if message.from_user else "ᴜɴᴋɴᴏᴡɴ ᴜsᴇʀ"
