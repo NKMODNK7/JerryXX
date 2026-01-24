@@ -7,9 +7,9 @@ import requests
 import yt_dlp
 from pyrogram.enums import MessageEntityType
 from pyrogram.types import Message
-from youtubesearchpython.__future__ import VideosSearch
-from RadhaMusic.utils.database import is_on_off
-from RadhaMusic.utils.formatters import time_to_seconds
+from py_yt import VideosSearch
+from AnonXMusic.utils.database import is_on_off
+from AnonXMusic.utils.formatters import time_to_seconds
 import os
 import glob
 import random
